@@ -6,6 +6,8 @@ import { theme } from 'styles/theme';
 import { StaticImage } from 'gatsby-plugin-image';
 import { ThemeProvider } from 'styled-components/macro';
 import { InputWrap } from 'components/Input';
+import RecipeCard from 'components/blocks/recipes/RecipeCard';
+
 
 
 
@@ -27,6 +29,7 @@ const Home: React.FC = () => {
 				<Typography type='h1' textAlign='center'>
 					fooood
 				</Typography>
+				<RecipeCard></RecipeCard>
 				<Image maxHeight='6.25rem' src='gatsbyImg' alt='gatsby' />
 				<StaticImage
 					src='../../assets/images/icon.png'

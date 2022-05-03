@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import styled from "styled-components/macro";
-import { Theme } from "styles/theme";
+import { theme, Theme } from "styles/theme";
 import {Box, BoxStyles, Typography, FlexWrapper} from 'components';
 
 export type InputProp = 'text' | 'number' | 'password' | 'email' | 'date';
@@ -39,9 +39,9 @@ export const InputWrap: React.FC<InputWrapProps> = ({
         <FlexWrapper flexDirection="column">
             {label && <Typography type="label12" htmlFor={id}>{label}</Typography>}
             {type=='number' || type=='date' ? 
-            <input id={id} type={type} value={value} onChange={(e: React.FormEvent<HTMLInputElement>)=>setValue(e.currentTarget.value)} placeholder={placeholder? placeholder : ""} min={minValue ? minValue : 0} max={maxValue ? maxValue : Infinity}/> 
+            <Box as="input" border= "4px solid blue" borderRadius={theme.radii.radius20} id={id} type={type} value={value} onChange={(e: React.FormEvent<HTMLInputElement>)=>setValue(e.currentTarget.value)} placeholder={placeholder? placeholder : ""} min={minValue ? minValue : 0} max={maxValue ? maxValue : Infinity}/> 
             :
-            <input id={id} type={type} value={value} onChange={(e: React.FormEvent<HTMLInputElement>)=>setValue(e.currentTarget.value)} placeholder={placeholder? placeholder : ""}/>
+            <Box as="input" id={id} type={type} value={value} onChange={(e: React.FormEvent<HTMLInputElement>)=>setValue(e.currentTarget.value)} placeholder={placeholder? placeholder : ""}/>
 }
             
             {isError && <Typography type="caption12" color="accent">{errorMessage}</Typography>}
